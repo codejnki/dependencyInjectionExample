@@ -1,12 +1,17 @@
 ﻿using System;
+using Autofac;
 
 namespace dependencyInjectionExample
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      var serviceResolver = new ServiceResolver();
+
+      var myProgram = serviceResolver.Container.Resolve<IMyProgram>();
+
+      myProgram.Run();
     }
+  }
 }
